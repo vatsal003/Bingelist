@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "9387445e-550d-4056-b03d-6800df5ce227",
+		"name": "Bingelist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e3093b15-5686-4897-9291-0b9e75fdd01e",
+								"exec": [
+									"if (pm.response.code === 201) {\r",
+									"    pm.environment.set('authToken',pm.response.json().token)\r",
+									"\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"name\":\"122\",\r\n    \"email\": \"3W2@a.da\",\r\n    \"password\":\"12212345\",\r\n    \"confirm_password\":\"12212345\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"aged\",\r\n    \"password\":\"aged12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44c06387-3e96-4fbd-859b-faec176b6751",
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    pm.environment.set('authToken',pm.response.json().token)\r",
+									"\r",
+									"\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"122@a.da\",\r\n    \"password\":\"12212345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logoutAll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/logoutAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"logoutAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "bingelists",
+			"item": [
+				{
+					"name": "create bingelists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typer\":\"educational\",\r\n    \"name\":\"bgw\",\r\n    \"rating\":\"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingelists",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingelists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reads bingelists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/bingelists",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingelists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reads bingelist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/bingelists/5fc187d97bea830cfc1ab341",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingelists",
+								"5fc187d97bea830cfc1ab341"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update bingelist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shared\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingelists/5fc187d97bea830cfc1ab341",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingelists",
+								"5fc187d97bea830cfc1ab341"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete bingelist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\":\"Now do tghsoi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingelists/5fc291a4d9afff0ee4cf0bb3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingelists",
+								"5fc291a4d9afff0ee4cf0bb3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "bingenotes",
+			"item": [
+				{
+					"name": "create bingenote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"binge_id\":\"5fc187d97bea830cfc1ab341\",\r\n    \"name\":\"n2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingenotes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingenotes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reads  bingenotes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"binge_id\":\"5fc187d97bea830cfc1ab341\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingenotes?limit=1&skip=0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingenotes"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reads bingenote",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"binge_id\":\"5fc187d97bea830cfc1ab341\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingenotes/5fc14fb836a0a30934417234",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingenotes",
+								"5fc14fb836a0a30934417234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update bingenote",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"binge_id\":\"5fc187d97bea830cfc1ab341\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingenotes/5fc14fb836a0a30934417234",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingenotes",
+								"5fc14fb836a0a30934417234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete bingenote",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"binge_id\":\"5fc187d97bea830cfc1ab341\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/bingenotes/5fc14fb836a0a30934417234",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bingenotes",
+								"5fc14fb836a0a30934417234"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6aa76dcc-4528-4739-85d6-bdcb29f44701",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5640d1ee-c133-4c97-bb5e-fa57815acbac",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
